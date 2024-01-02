@@ -5,4 +5,4 @@ from dwragored.models import Location, Experience
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("myswim.html")
