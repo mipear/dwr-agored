@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from dwragored import app, db
-from dwragored.models import Location, My Swim
+from dwragored.models import Location, MySwim
 
 
 @app.route("/")

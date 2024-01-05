@@ -5,18 +5,18 @@ class Location(db.Model):
     # schema for the Location model
     id = db.Column(db.Integer, primary_key=True)
     location_name = db.Column(db.String(25), unique=True, nullable=False)
-    experiences = db.relationship("Experience", backref="location", cascade="all, delete", lazy=True)
+    my_swim = db.relationship("MySwim", backref="location", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return self.location_name
 
 
-class Experience(db.Model):
-    # schema for the experience model
+class MySwim(db.Model):
+    # schema for the My Swim model
     id = db.Column(db.Integer, primary_key=True)
-    experience_title = db.Column(db.String(50), unique=True, nullable=False)
-    experience_description = db.Column(db.Text, nullable=False)
+    myswim_title = db.Column(db.String(50), unique=True, nullable=False)
+    myswim_description = db.Column(db.Text, nullable=False)
     go_again = db.Column(db.Boolean, default=False, nullable=False)
     cleanliness_rating = db.Column(db.Integer, nullable=False)
     date = db.Column(db.Date, nullable=False)
@@ -25,5 +25,5 @@ class Experience(db.Model):
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return "#{0} - Experience: {1} | Go Again?: {2} | Cleanliness: {3}".format(
-            self.id, self.experience_title, self.go_again, self.cleanliness_rating
+            self.id, self.myswim_title, self.go_again, self.cleanliness_rating
         )
