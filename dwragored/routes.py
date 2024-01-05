@@ -10,7 +10,8 @@ def home():
 
 @app.route("/location")
 def location():
-    return render_template("location.html")
+    location = list(Location.query.order_by(Location.location_name).all())
+    return render_template("location.html", location=location)
 
 
 @app.route("/add_location", methods=["GET", "POST"])

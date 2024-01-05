@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <h3 class="light-blue-text text-darken-4 center-align">Location</h3>
 
@@ -11,4 +10,19 @@
     </div>
 </div>
 
+<div class="row">
+    {% for location in location %}
+    <div class="col s12 m6 l3">
+        <div class="card light-blue darken-4 center-align">
+            <div class="card-content white-text">
+                <span class="card-title">{{ location.location_name }}</span>
+            </div>
+            <div class="card-action">
+                <a href="#" class="btn green accent-4">Edit</a>
+                <a href="#" class="btn red">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
