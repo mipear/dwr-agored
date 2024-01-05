@@ -31,3 +31,10 @@ def edit_location(location_id):
         db.session.commit()
         return redirect(url_for("location"))
     return render_template("edit_location.html", location=location)
+
+@app.route("/delete_location/<int:location_id>")
+def delete_location(location_id):
+    location = Location.query.get_or_404(location_id)
+    db.session.delete(location)
+    db.session.commit()
+    return redirect(url_for("location"))
