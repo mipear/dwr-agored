@@ -38,3 +38,20 @@ def delete_location(location_id):
     db.session.delete(location)
     db.session.commit()
     return redirect(url_for("location"))
+
+@app.route("/add_swim", methods=["GET", "POST"])
+def add_swim():
+    location = list(Location.query.order_by(Location.location_name).all())
+    if request.method == "POST":
+        myswim = MySwim(
+            myswim_title=request.form.get("myswim_title"),
+            myswim_description=request.form.get("myswim_description"),
+            go_again=bool(True if request.form.get("go_again") else False),
+            cleanliness_rating=request.form.get("cleanliness_rating"),
+            date=request.form.get("date"),
+            location_id=request.form.get("location_id")
+        )
+        db.session.add(myswim)
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("add_swim.html", location=location)
