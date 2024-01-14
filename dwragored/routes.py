@@ -5,7 +5,8 @@ from dwragored.models import Location, MySwim
 
 @app.route("/")
 def home():
-    return render_template("myswim.html")
+    myswim = list(MySwim.query.order_by(MySwim.id).all())
+    return render_template("myswim.html", myswim=myswim)
 
 
 @app.route("/location")
