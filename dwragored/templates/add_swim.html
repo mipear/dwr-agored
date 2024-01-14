@@ -3,92 +3,78 @@
 <h3 class="light-blue-text text-darken-4 center-align">Add Swim</h3>
 
 <div class="row card-panel grey lighten-5">
-  <form class="col s12" method="POST" action="{{ url_for('add_swim') }}">
-    <!-- swim name -->
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-        <input
-          id="swim_name"
-          name="swim_name"
-          minlength="3"
-          maxlength="25"
-          type="text"
-          class="validate"
-          required
-        />
-        <label for="swim_name">Swim Name</label>
-      </div>
-    </div>
-    <!-- swim description -->
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-        <textarea
-          id="swim_description"
-          name="swim_description"
-          minlength="5"
-          maxlength="200"
-          type="text"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="swim_description">Swim Description</label>
-      </div>
-    </div>
-    <!-- swim date -->
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="fas fa-calendar prefix light-blue-text text-darken-4"></i>
-        <input
-          id="swim_date"
-          name="swim_date"
-          type="text"
-          class="datepicker validate"
-          required
-        />
-        <label for="swim_date">Date</label>
-      </div>
-    </div>
-    <!-- go_again -->
-    <div class="row">
-      <div class="input-field col s12">
-        <div class="switch">
-          <i
-            class="fas fa-folder-open prefix light-blue-text text-darken-4"
-          ></i>
-          <label for="go_again">
-            <input id="go_again" name="go_again" type="checkbox" required />
-            <span class="lever"></span>
-            Would you go again?
-          </label>
+    <form class="col s12" method="POST" action="{{ url_for('add_swim') }}">
+        <!-- swim name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <input id="swim_name" name="myswim_title" minlength="3" maxlength="25" type="text" class="validate"
+                    required />
+                <label for="swim_name">Swim Name</label>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- location_id -->
-    <div class="row">
-      <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-        <select id="location_id" name="location_id" class="validate" required>
-          <option value="" disabled selected>Choose Location</option>
-          {% for location in location %}
-          <option value="{{ location.id }}">
-            {{ location.location_name }}
-          </option>
-          {% endfor %}
-        </select>
-        <label for="location_id">Location</label>
-      </div>
-    </div>
-    <!-- submit button -->
-    <div class="row">
-      <div class="col s12 center-align">
-        <button type="submit" class="btn-large light-blue darken-1">
-          Add Swim <i class="fas fa-plus-square right"></i>
-        </button>
-      </div>
-    </div>
-  </form>
+        <!-- swim description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <textarea id="swim_description" name="myswim_description" minlength="5" maxlength="200" type="text"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="swim_description">Swim Description</label>
+            </div>
+        </div>
+        <!-- swim date -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar prefix light-blue-text text-darken-4"></i>
+                <input id="swim_date" name="date" type="text" class="datepicker validate" required />
+                <label for="swim_date">Date</label>
+            </div>
+        </div>
+        <!-- go_again -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                    <label for="go_again">
+                        <input id="go_again" name="go_again" type="checkbox" required />
+                        <span class="lever"></span>
+                        Would you go again?
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- cleanliness rating -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <input id="cleanliness_rating" name="cleanliness_rating" type="integer" class="validate" required />
+                <label for="cleanliness_rating">Cleanliness?</label>
+            </div>
+        </div>
+        <!-- location_id -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <select id="location_id" name="location_id" class="validate" required>
+                    <option value="" disabled selected>Choose Location</option>
+                    {% for location in location %}
+                    <option value="{{ location.id }}">
+                        {{ location.location_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <label for="location_id">Location</label>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-1">
+                    Add Swim <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
 
 {% endblock %}

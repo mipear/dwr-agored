@@ -44,6 +44,7 @@ def delete_location(location_id):
 def add_swim():
     location = list(Location.query.order_by(Location.location_name).all())
     if request.method == "POST":
+        print(request.form)
         myswim = MySwim(
             myswim_title=request.form.get("myswim_title"),
             myswim_description=request.form.get("myswim_description"),
@@ -52,6 +53,7 @@ def add_swim():
             date=request.form.get("date"),
             location_id=request.form.get("location_id")
         )
+        
         db.session.add(myswim)
         db.session.commit()
         return redirect(url_for("home"))
