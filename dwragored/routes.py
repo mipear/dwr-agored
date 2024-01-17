@@ -58,3 +58,17 @@ def add_swim():
         db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_swim.html", location=location)
+
+@app.route("/edit_swim/<int:myswim_id>", methods=["GET", "POST"])
+def edit_swim(myswim_id):
+    myswim = MySwim.query.get_or_404(myswim_id)
+    location = list(Location.query.order_by(Location.location_name).all())
+    if request.method == "POST":
+        myswim.myswim_title = request.form.get("myswim_title")
+        myswim.myswim_description = request.form.get("myswim_description")
+        myswim.go_again = bool(True if request.form.get("go_again") else False)
+        myswim.cleanliness_rating = request.form.get("cleanliness_rating")
+        myswim.date = request.form.get("date")
+        myswim.location_id = request.form.get("location_id")
+        db.session.commit()
+    return render_template("edit_swim.html", myswim=myswim, location=location)
