@@ -72,3 +72,10 @@ def edit_swim(myswim_id):
         myswim.location_id = request.form.get("location_id")
         db.session.commit()
     return render_template("edit_swim.html", myswim=myswim, location=location)
+
+@app.route("/delete_swim/<int:myswim_id>")
+def delete_swim(myswim_id):
+    myswim = MySwim.query.get_or_404(myswim_id)
+    db.session.delete(myswim)
+    db.session.commit()
+    return redirect(url_for("home"))
