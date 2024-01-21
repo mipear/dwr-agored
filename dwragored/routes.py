@@ -3,13 +3,13 @@ from dwragored import app, db
 from dwragored.models import Location, MySwim
 
 
-@app.route("/")
+@app.route("/home")
 def home():
     myswim = list(MySwim.query.order_by(MySwim.id).all())
     return render_template("myswim.html", myswim=myswim)
 
 
-@app.route("/homepage")
+@app.route("/")
 def homepage():
     return render_template("homepage.html")
 

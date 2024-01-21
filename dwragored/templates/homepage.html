@@ -2,6 +2,7 @@
 
 <h3 class="light-blue-text text-darken-4 center-align">Home</h3>
 
+<!--
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
         <div class="container">
@@ -17,10 +18,26 @@
             <br>
         </div>
         <div class="parallax">
-            <img id="hero-image" src="{{ url_for('static', filename='images/heroimage.webp') }}" alt="south wales lake">
+            <img id="hero-image" src="{{ url_for('static', filename='dwragored/static/images/heroimage.webp') }}"
+                alt="south wales lake">
         </div>
     </div>
 
 </div>
+-->
+
+<section>
+    <!-- This is the hero image 
+    <div id="hero-outer">
+        <div>
+            <img id="hero-image" src="{{ url_for('static', filename='dwragored/static/images/heroimage.webp') }}"
+                alt="south wales lake">
+        </div>
+    </div> -->
+
+    <div>
+        <img class="responsive-img" src="dwragored/static/images/heroimage.webp">
+    </div>
+</section>
 
 {% endblock %}

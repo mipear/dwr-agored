@@ -10,7 +10,26 @@ main {
     flex: 1 0 auto;
 }
 
-/* hero image parallax */
+/* Footer */
+.page-footer {
+    height: 150px;
+}
+
+.social-networks {
+    text-align: center;
+}
+
+.social-networks li {
+    display: inline;
+}
+
+.social-networks i {
+    font-size: 160%;
+    margin: 1%;
+    padding: 5%;
+}
+
+/* hero image parallax 
 
 .parallax-container {
     min-height: 380px;
@@ -22,5 +41,32 @@ main {
     width: 100%;
 }
 
+/* Home Page section */
+/* Hero Image */
+#hero-image {
+    height: 600px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 
+    animation-name: hero-zoom;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
 
+#hero-outer {
+    height: 600px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes hero-zoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
