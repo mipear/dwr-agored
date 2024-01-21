@@ -9,6 +9,11 @@ def home():
     return render_template("myswim.html", myswim=myswim)
 
 
+@app.route("/homepage")
+def homepage():
+    return render_template("homepage.html")
+
+
 @app.route("/location")
 def location():
     location = list(Location.query.order_by(Location.location_name).all())
@@ -24,6 +29,7 @@ def add_location():
         return redirect(url_for("location"))
     return render_template("add_location.html")
 
+
 @app.route("/edit_location/<int:location_id>", methods=["GET", "POST"])
 def edit_location(location_id):
     location = Location.query.get_or_404(location_id)
@@ -33,12 +39,14 @@ def edit_location(location_id):
         return redirect(url_for("location"))
     return render_template("edit_location.html", location=location)
 
+
 @app.route("/delete_location/<int:location_id>")
 def delete_location(location_id):
     location = Location.query.get_or_404(location_id)
     db.session.delete(location)
     db.session.commit()
     return redirect(url_for("location"))
+
 
 @app.route("/add_swim", methods=["GET", "POST"])
 def add_swim():
@@ -53,11 +61,12 @@ def add_swim():
             date=request.form.get("date"),
             location_id=request.form.get("location_id")
         )
-        
+
         db.session.add(myswim)
         db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_swim.html", location=location)
+
 
 @app.route("/edit_swim/<int:myswim_id>", methods=["GET", "POST"])
 def edit_swim(myswim_id):
@@ -72,6 +81,7 @@ def edit_swim(myswim_id):
         myswim.location_id = request.form.get("location_id")
         db.session.commit()
     return render_template("edit_swim.html", myswim=myswim, location=location)
+
 
 @app.route("/delete_swim/<int:myswim_id>")
 def delete_swim(myswim_id):
