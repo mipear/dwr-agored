@@ -18,25 +18,46 @@
             <br>
         </div>
         <div class="parallax">
-            <img id="hero-image" src="{{ url_for('static', filename='dwragored/static/images/heroimage.webp') }}"
+            <img id="hero-image" src="{{ url_for('static', filename='/images/heroimage.webp') }}"
                 alt="south wales lake">
         </div>
     </div>
 
-</div>
--->
+</div> -->
+
 
 <section>
-    <!-- This is the hero image 
+    <!-- This is the hero image -->
     <div id="hero-outer">
         <div>
-            <img id="hero-image" src="{{ url_for('static', filename='dwragored/static/images/heroimage.webp') }}"
+            <img id="hero-image" class="repsonsive-img" src="{{ url_for('static', filename='/images/heroimage.webp') }}"
                 alt="south wales lake">
         </div>
-    </div> -->
-
+        <div id="cover-text">
+            <h2>Dwr Agored</h2>
+        </div>
+    </div>
+</section>
+<br>
+<section>
+    <div id="about">
+        <h3 class="light-blue-text text-darken-4 center-align">About Dŵr Agored</h3>
+        <h5 class="light-blue-text text-darken-3 center-align">Are you a cold water swimmer based in South Wales? Dŵr
+            Agored (Open Water) is a resource for cold water
+            swimmers to share and browse swims. As a cold water swimmer myself, I know sometimes it is hard to find the
+            right location.</h5>
+    </div>
+</section>
+<br>
+<section>
+    <div id="map">
+        <h3 class="light-blue-text text-darken-4 center-align">The map</h3>
+        <h5 class="light-blue-text text-darken-3 center-align">The map below shows swimming locations in the South Wales
+            area. Please click on a marked location to view
+            other people's swims.</h5>
+    </div>
     <div>
-        <img class="responsive-img" src="dwragored/static/images/heroimage.webp">
+        This will be the map.
     </div>
 </section>
 
