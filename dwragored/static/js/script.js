@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let collapsibiles = document.querySelectorAll('.collapsible');
     M.Collapsible.init(collapsibiles);
 
-    // parallax initialization
-    let parallax = document.querySelectorAll('.parallax');
-    M.Parallax.init(elems);
+    // modal initialization
+    let modal = document.querySelectorAll('.modal');
+    M.Modal.init(modal);
+
   });
