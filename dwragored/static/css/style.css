@@ -58,3 +58,16 @@ main {
         transform: scale(1.1);
     }
 }
+
+
+#map-add {
+  position: relative;
+}
+
+#map-add p {
+  position: absolute;
+  color: green;
+  mix-blend-mode: difference;
+  margin: 0;
+  padding: 0;
+}

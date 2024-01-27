@@ -13,6 +13,13 @@ def home():
 def homepage():
     return render_template("homepage.html")
 
+@app.route("/loginaccount")
+def loginaccount():
+    return render_template('loginaccount.html')
+
+@app.route("/register")
+def register():
+    return render_template('register.html')
 
 @app.route("/location")
 def location():
@@ -89,3 +96,5 @@ def delete_swim(myswim_id):
     db.session.delete(myswim)
     db.session.commit()
     return redirect(url_for("home"))
+
+

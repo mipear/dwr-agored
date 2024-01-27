@@ -27,3 +27,8 @@ class MySwim(db.Model):
         return "#{0} - Experience: {1} | Go Again?: {2} | Cleanliness: {3}".format(
             self.id, self.myswim_title, self.go_again, self.cleanliness_rating
         )
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)

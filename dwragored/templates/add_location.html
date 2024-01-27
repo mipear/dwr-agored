@@ -13,6 +13,13 @@
                 <label for="location_name">Location Name</label>
             </div>
         </div>
+        <!--Location Add-->
+        <h5>Click the map to add a new location</h5>
+        <div id="map-add">
+            <img class="responsive-img" src="{{ url_for('static', filename='/images/swmap.webp') }}" alt="South Wales map">
+        </div>
+        <br>
+
         <!-- submit button -->
         <div class="row">
             <div class="col s12 center-align">
@@ -23,5 +30,6 @@
         </div>
     </form>
 </div>
+
 
 {% endblock %}
