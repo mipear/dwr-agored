@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from dwragored import app, db
-from dwragored.models import Location, MySwim
+from dwragored.models import Location, MySwim, User
 
 
 @app.route("/home")
@@ -15,11 +15,11 @@ def homepage():
 
 @app.route("/loginaccount")
 def loginaccount():
-    return render_template('loginaccount.html')
+    return render_template("loginaccount.html")
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template('register.html')
+    return render_template("register.html")
 
 @app.route("/location")
 def location():
