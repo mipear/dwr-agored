@@ -25,6 +25,8 @@ def loginaccount():
         if user and check_password_hash(user.password, password):
             session["user"] = username
             flash("Welcome, {}".format(username))
+            return redirect(url_for(
+                "profile", username=session["user"]))
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("loginaccount"))
@@ -52,7 +54,8 @@ def register():
         db.session.commit()
 
         flash("Registration Successful!")
-        return redirect(url_for("loginaccount"))
+        #return redirect(url_for("loginaccount"))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
@@ -162,3 +165,22 @@ def delete_swim(myswim_id):
     db.session.delete(myswim)
     db.session.commit()
     return redirect(url_for("home"))
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    user = User.query.filter_by(username=session["user"]).first()
+    if user:
+        username = user.username
+        return render_template("profile.html", username=username)
+    else:
+        return render_template("user_not_found.html")
+
+@app.route("/logoutaccount")
+def logoutaccount():
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("loginaccount"))
+
+if __name__ == "__main__":
+    db.create_all()
+    app.run(debug=True)
