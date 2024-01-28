@@ -10,6 +10,10 @@ main {
     flex: 1 0 auto;
 }
 
+.flashes h4 {
+    line-height: 2;
+}
+
 /* Footer */
 .page-footer {
     height: 150px;
@@ -61,13 +65,13 @@ main {
 
 
 #map-add {
-  position: relative;
+    position: relative;
 }
 
 #map-add p {
-  position: absolute;
-  color: green;
-  mix-blend-mode: difference;
-  margin: 0;
-  padding: 0;
+    position: absolute;
+    color: green;
+    mix-blend-mode: difference;
+    margin: 0;
+    padding: 0;
 }

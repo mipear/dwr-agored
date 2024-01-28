@@ -13,18 +13,26 @@ def home():
 def homepage():
     return render_template("homepage.html")
 
-
-
-@app.route("/loginaccount",methods=["GET", "POST"])
+@app.route("/loginaccount", methods=["GET", "POST"])
 def loginaccount():
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
-        
-        loginaccount = user.query.filter_by(username=username, password=password).first()
-        if loginaccount is not None:
-            return redirect(url_for("homepage"))
+        username = request.form.get("username").lower()
+        password = request.form.get("password")
+
+        user = User.query.filter_by(username=username).first()
+
+        if user and check_password_hash(user.password, password):
+            session["user"] = username
+            flash("Welcome, {}".format(username))
+        else:
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("loginaccount"))
+
     return render_template("loginaccount.html")
+
+if __name__ == "__main__":
+    db.create_all()
+    app.run(debug=True)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
