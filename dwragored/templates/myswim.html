@@ -10,6 +10,11 @@
     </div>
 </div>
 
+<div>
+    <img class="responsive-img" src="{{ url_for('static', filename='/images/coldswimming.webp') }}"
+        alt="south wales lake" />
+</div>
+
 <ul class="collapsible">
     {% for myswim in myswim|sort(attribute="date") %}
     <li>
