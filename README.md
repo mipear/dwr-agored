@@ -58,6 +58,8 @@ Map of user journey
 
 - For users to be able to input precise, correct location. Currently this is based on trust, which is likely to be wrong.
 - Ability for users to reset passwords if they have forgotten their password
+- For users to be able to upload photos of their swimming experience
+- Ability for users to comment on each other's posts
 
 ## Features
 
@@ -87,9 +89,7 @@ Description and wireframe
 
 ## Functionality
 
-Small para about website ability to log in and post etc. CRUD functionality using cards.
-
-### Future Implementations
+On Dŵr Agored, users are able to register for an account, log in and out of their account. The website offers full CRUD functionality as users are able to add, edit, and delete their own posts. This has been created using cards through Materialize and the Taskmanager mini project on Code Institute.
 
 ### Accessibility
 
@@ -117,13 +117,15 @@ Flask
 Jinja
 FontAwesome
 
-### Programs Used
+
+###  Programs Used
 
 Heroku
 Git
 GitHub
 Google Dev Tools
 Pip (???)
+ElephantSQL
 
 ## Testing
 
@@ -132,9 +134,10 @@ Pip (???)
 Insert table for user stories. Columns wll be… As a …. I want to…, Action, Evidence (screenshots)
 
 | As a... I want to... | Action | Evidence |
-| First Time Visitor | |
-| Returning Visitor | |
-| Paragraph | Text |
+|----------------------|--------|----------|
+| First Time Visitor   |        |          |
+| Returning Visitor    |        |
+
 
 **HTML Validation**
 
@@ -169,6 +172,7 @@ Link and table (Page, Result, Evidence)
 <https://pep8ci.herokuapp.com/>
 
 ### Defensive Programming
+Before deleting a swim or location, users are asked if they are sure they would like to delete it.
 
 ## Deployment
 
@@ -179,5 +183,7 @@ Making a local clone
 ## Credits
 
 ## Media
+Google Maps for the image of South Wales
+
 
 ## Acknowledgment

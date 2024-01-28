@@ -4,8 +4,8 @@ from dwragored.models import Location, MySwim, User
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-@app.route("/home")
-def home():
+@app.route("/allswims")
+def allswims():
     myswim = list(MySwim.query.order_by(MySwim.id).all())
     return render_template("myswim.html", myswim=myswim)
 
@@ -115,7 +115,7 @@ def add_swim():
 
         db.session.add(myswim)
         db.session.commit()
-        return redirect(url_for("home"))
+        return redirect(url_for("allswims"))
     return render_template("add_swim.html", location=location)
 
 
@@ -130,6 +130,7 @@ def edit_swim(myswim_id):
         myswim.cleanliness_rating = request.form.get("cleanliness_rating")
         myswim.date = request.form.get("date")
         myswim.location_id = request.form.get("location_id")
+        
         db.session.commit()
     return render_template("edit_swim.html", myswim=myswim, location=location)
 
@@ -139,7 +140,7 @@ def delete_swim(myswim_id):
     myswim = MySwim.query.get_or_404(myswim_id)
     db.session.delete(myswim)
     db.session.commit()
-    return redirect(url_for("home"))
+    return redirect(url_for("allswims"))
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
