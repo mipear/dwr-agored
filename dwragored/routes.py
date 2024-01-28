@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash, session
 from dwragored import app, db
 from dwragored.models import Location, MySwim, User
 
@@ -13,13 +13,70 @@ def home():
 def homepage():
     return render_template("homepage.html")
 
-@app.route("/loginaccount")
+
+
+@app.route("/loginaccount",methods=["GET", "POST"])
+def loginaccount():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        
+        loginaccount = user.query.filter_by(username=username, password=password).first()
+        if loginaccount is not None:
+            return redirect(url_for("homepage"))
+    return render_template("loginaccount.html")
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = generate_password_hash(request.form["password"])
+
+        existing_user = User.query.filter_by(username=username.lower()).first()
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        new_user = User(username=username.lower(), password=password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        flash("Registration Successful!")
+        return redirect(url_for("loginaccount"))
+
+     return render_template("register.html")
+
+if __name__ == "__main__":
+    db.create_all()
+    app.run(debug=True)
+
+""" @app.route("/loginaccount")
 def loginaccount():
     return render_template("loginaccount.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    if request.method == "POST":
+       username_input = request.form.get("username").lower()
+        existing_user = session.query(User).filter(func.lower(User.username) == username_input).first()
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register))
+        
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+
+        new_user = User(**register)
+        session.add(new_user)
+        session.commit()
+
+        session["user"] = request.form.get("username").lower()
+        flash("Resistration Successful")    
+    return render_template("register.html") """
 
 @app.route("/location")
 def location():
