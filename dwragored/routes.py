@@ -51,10 +51,13 @@ def register():
 
         new_user = User(username=username.lower(), password=password)
         db.session.add(new_user)
+        session["user"] = username
+        print( "user in session -register route = ",session["user"])
         db.session.commit()
 
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+        # return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=username))
 
     return render_template("register.html")
 
@@ -140,9 +143,11 @@ def delete_swim(myswim_id):
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    user = User.query.filter_by(username=session["user"]).first()
+    
+    # user = User.query.filter_by(username=session["user"]).first()
+    user = User.query.filter_by(username=username)
     if user:
-        username = user.username
+        # username = user.username
         return render_template("profile.html", username=username)
     else:
         return render_template("user_not_found.html")

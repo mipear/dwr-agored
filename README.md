@@ -24,6 +24,7 @@ Create an account
 #### Returning Visitor Goals
 
 As a returning user of the site I want to be able to:
+
 - Log in to own account
 - Post own experience of cold water swimming in South Wales area
 - Edit and delete own posts
@@ -56,6 +57,7 @@ Map of user journey
 ### Future Development
 
 - For users to be able to input precise, correct location. Currently this is based on trust, which is likely to be wrong.
+- Ability for users to reset passwords if they have forgotten their password
 
 ## Features
 
@@ -73,7 +75,7 @@ Map of user journey
 
 ### Home Page
 
-The Home Page is a page all users have access to. The purpose of this page is to 
+The Home Page is a page all users have access to. The purpose of this page is to
 
 ### My Swim
 
@@ -129,10 +131,10 @@ Pip (???)
 
 Insert table for user stories. Columns wll be… As a …. I want to…, Action, Evidence (screenshots)
 
-| As a... I want to...  | Action | Evidence |
-| First Time Visitor  |  |
-| Returning Visitor  |       |
-| Paragraph | Text        |
+| As a... I want to... | Action | Evidence |
+| First Time Visitor | |
+| Returning Visitor | |
+| Paragraph | Text |
 
 **HTML Validation**
 

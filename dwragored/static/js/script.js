@@ -31,7 +31,7 @@ $('map-add').on("click", "img", function (e) {
         posY = position.top,
         positionX = Math.floor(e.pageX - posX),
         positionY = Math.floor(e.pageY - posY),
-        marker = $('<p class="clicked">Clicked here</p>');
+        marker = $('<i class="fa-solid fa-location-dot"></i>');
     marker.css({ top: positionY + "px", left: positionX + "px" });
     wrapper.append(marker);
 });
