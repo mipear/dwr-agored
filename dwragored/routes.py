@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
 from dwragored import app, db
 from dwragored.models import Location, MySwim, User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @app.route("/home")
@@ -53,7 +54,7 @@ def register():
         flash("Registration Successful!")
         return redirect(url_for("loginaccount"))
 
-     return render_template("register.html")
+    return render_template("register.html")
 
 if __name__ == "__main__":
     db.create_all()
@@ -161,5 +162,3 @@ def delete_swim(myswim_id):
     db.session.delete(myswim)
     db.session.commit()
     return redirect(url_for("home"))
-
-
