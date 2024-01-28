@@ -54,7 +54,6 @@ def register():
         db.session.commit()
 
         flash("Registration Successful!")
-        #return redirect(url_for("loginaccount"))
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
@@ -62,33 +61,6 @@ def register():
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
-
-""" @app.route("/loginaccount")
-def loginaccount():
-    return render_template("loginaccount.html")
-
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    if request.method == "POST":
-       username_input = request.form.get("username").lower()
-        existing_user = session.query(User).filter(func.lower(User.username) == username_input).first()
-
-        if existing_user:
-            flash("Username already exists")
-            return redirect(url_for("register))
-        
-        register = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-
-        new_user = User(**register)
-        session.add(new_user)
-        session.commit()
-
-        session["user"] = request.form.get("username").lower()
-        flash("Resistration Successful")    
-    return render_template("register.html") """
 
 @app.route("/location")
 def location():

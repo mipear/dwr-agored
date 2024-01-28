@@ -22,16 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
     let modal = document.querySelectorAll('.modal');
     M.Modal.init(modal);
 
-  });
+});
 
-  $('map-add').on("click", "img", function (e) { 
-  var wrapper = $(this).parent(),
-    position = wrapper.offset(), 
-    posX = position.left,
-    posY = position.top,
-    positionX = Math.floor(e.pageX - posX),
-    positionY = Math.floor(e.pageY - posY),
-    marker = $('<p class="clicked">Clicked here</p>');
-  marker.css({top: positionY + "px", left: positionX + "px"})
-  wrapper.append(marker);
+$('map-add').on("click", "img", function (e) {
+    var wrapper = $(this).parent(),
+        position = wrapper.offset(),
+        posX = position.left,
+        posY = position.top,
+        positionX = Math.floor(e.pageX - posX),
+        positionY = Math.floor(e.pageY - posY),
+        marker = $('<p class="clicked">Clicked here</p>');
+    marker.css({ top: positionY + "px", left: positionX + "px" });
+    wrapper.append(marker);
 });

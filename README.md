@@ -2,12 +2,9 @@
 
 Am I responsive img
 
-The purpose of Dŵr Agored is to offer cold water swimmers in the South Wales area a website to browse and post experiences of cold water swimming. This website is useful to swimmers as they are able to recommend places they enjoy and warn other swimmers of potentially dangerous places. Browse other people’s experiences to gain new cold water swimming destinations. Potentially meet other swimmers(?).
+The purpose of Dŵr Agored is to offer cold water swimmers in the South Wales area a website to browse and post their experiences of cold water swimming. This website is useful to swimmers as they are able to recommend places they enjoy and warn other swimmers of potentially dangerous places. It can also be used as a diary for swimmers. Users can browse other people’s experiences to gain new cold water swimming destinations.
 
-Para about project - Purpose of website. Categories? Users able to… Backend support storage of data… What does the site offer.
-Live link.
-
-## Table of contents
+<https://dwr-agored-41d2330041ac.herokuapp.com/>
 
 ## UX
 
@@ -20,22 +17,22 @@ Live link.
 As a first time user of the site, I want to be able to
 Create an account
 
--
-
--
+- Create an account
+- Learn what the website is about
+- See swim locations on a map
 
 #### Returning Visitor Goals
 
 As a returning user of the site I want to be able to:
-Post own experience of cold water swimming in South Wales area
-Browse other people’s experiences to gain new cold water swimming destinations
-Edit and delete own posts
+- Log in to own account
+- Post own experience of cold water swimming in South Wales area
+- Edit and delete own posts
+- Browse other people’s experiences to gain new cold water swimming destinations
 
 #### Admin User
 
 ## As an administrator for the site I want to be able to
 
--
 -
 
 ### User Journey
@@ -44,17 +41,21 @@ Map of user journey
 
 ### All user goals
 
--
--
--
+- Create an account
+- View swimming locations on a map of South Wales
+- Learn about what the website does
 
 ### Returning user goals
 
--
--
--
+- Log in to own account
+- Post own swim experience
+- View other people's post to gain new recommendations
+- Edit and delete own post
+- View own posts to reminisce on own experiences
 
 ### Future Development
+
+- For users to be able to input precise, correct location. Currently this is based on trust, which is likely to be wrong.
 
 ## Features
 
@@ -72,7 +73,7 @@ Map of user journey
 
 ### Home Page
 
-Description and wireframe
+The Home Page is a page all users have access to. The purpose of this page is to 
 
 ### My Swim
 
@@ -128,9 +129,9 @@ Pip (???)
 
 Insert table for user stories. Columns wll be… As a …. I want to…, Action, Evidence (screenshots)
 
-| Syntax    | Description |
-| --------- | ----------- |
-| Header    | Title       |
+| As a... I want to...  | Action | Evidence |
+| First Time Visitor  |  |
+| Returning Visitor  |       |
 | Paragraph | Text        |
 
 **HTML Validation**
