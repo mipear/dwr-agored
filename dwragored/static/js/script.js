@@ -23,15 +23,3 @@ document.addEventListener("DOMContentLoaded", function () {
     M.Modal.init(modal);
 
 });
-
-$('map-add').on("click", "img", function (e) {
-    var wrapper = $(this).parent(),
-        position = wrapper.offset(),
-        posX = position.left,
-        posY = position.top,
-        positionX = Math.floor(e.pageX - posX),
-        positionY = Math.floor(e.pageY - posY),
-        marker = $('<i class="fa-solid fa-location-dot"></i>');
-    marker.css({ top: positionY + "px", left: positionX + "px" });
-    wrapper.append(marker);
-});
