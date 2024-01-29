@@ -3,7 +3,6 @@ from dwragored import app, db
 from dwragored.models import Location, MySwim, User
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 @app.route("/allswims")
 def allswims():
     myswim = list(MySwim.query.order_by(MySwim.id).all())
