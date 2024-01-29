@@ -1,7 +1,21 @@
 from flask import render_template, request, redirect, url_for, flash, session
-from dwragored import app, db
+from dwragored import app, db, login_manager
 from dwragored.models import Location, MySwim, User
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import (
+    UserMixin,
+    login_user,
+    logout_user,
+    login_required,
+    current_user,
+    LoginManager,
+)
+
+# # login_manager = LoginManager()
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @app.route("/allswims")
 def allswims():
@@ -11,10 +25,11 @@ def allswims():
 
 @app.route("/")
 def homepage():
+    print(current_user)
     return render_template("homepage.html")
 
-@app.route("/loginaccount", methods=["GET", "POST"])
-def loginaccount():
+@app.route("/user_login", methods=["GET", "POST"])
+def login():
     if request.method == "POST":
         username = request.form.get("username").lower()
         password = request.form.get("password")
@@ -28,9 +43,9 @@ def loginaccount():
                 "profile", username=session["user"]))
         else:
             flash("Incorrect Username and/or Password")
-            return redirect(url_for("loginaccount"))
+            return redirect(url_for("login"))
 
-    return render_template("loginaccount.html")
+    return render_template("login.html")
 
 if __name__ == "__main__":
     db.create_all()
@@ -71,6 +86,7 @@ def location():
 
 
 @app.route("/add_location", methods=["GET", "POST"])
+@login_required
 def add_location():
     if request.method == "POST":
         location = Location(location_name=request.form.get("location_name"))
@@ -81,6 +97,7 @@ def add_location():
 
 
 @app.route("/edit_location/<int:location_id>", methods=["GET", "POST"])
+@login_required
 def edit_location(location_id):
     location = Location.query.get_or_404(location_id)
     if request.method == "POST":
@@ -91,6 +108,7 @@ def edit_location(location_id):
 
 
 @app.route("/delete_location/<int:location_id>")
+@login_required
 def delete_location(location_id):
     location = Location.query.get_or_404(location_id)
     db.session.delete(location)
@@ -99,7 +117,9 @@ def delete_location(location_id):
 
 
 @app.route("/add_swim", methods=["GET", "POST"])
+@login_required
 def add_swim():
+    print(current_user)
     location = list(Location.query.order_by(Location.location_name).all())
     if request.method == "POST":
         print(request.form)
@@ -109,7 +129,8 @@ def add_swim():
             go_again=bool(True if request.form.get("go_again") else False),
             cleanliness_rating=request.form.get("cleanliness_rating"),
             date=request.form.get("date"),
-            location_id=request.form.get("location_id")
+            location_id=request.form.get("location_id"),
+            user_id=current_user.id
         )
 
         db.session.add(myswim)
@@ -119,6 +140,7 @@ def add_swim():
 
 
 @app.route("/edit_swim/<int:myswim_id>", methods=["GET", "POST"])
+@login_required
 def edit_swim(myswim_id):
     myswim = MySwim.query.get_or_404(myswim_id)
     location = list(Location.query.order_by(Location.location_name).all())
@@ -135,6 +157,7 @@ def edit_swim(myswim_id):
 
 
 @app.route("/delete_swim/<int:myswim_id>")
+@login_required
 def delete_swim(myswim_id):
     myswim = MySwim.query.get_or_404(myswim_id)
     db.session.delete(myswim)
@@ -152,11 +175,11 @@ def profile(username):
     else:
         return render_template("user_not_found.html")
 
-@app.route("/logoutaccount")
-def logoutaccount():
+@app.route("/user_logout")
+def logout():
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("loginaccount"))
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     db.create_all()

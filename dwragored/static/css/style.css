@@ -1,77 +1,76 @@
 /* sticky footer ensure footer remains at bottom of page. from materialise */
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .flashes h4 {
-    line-height: 2;
+  line-height: 2;
 }
 
 /* Footer */
 .page-footer {
-    height: 150px;
+  height: 150px;
 }
 
 .social-networks {
-    text-align: center;
+  text-align: center;
 }
 
 .social-networks li {
-    display: inline;
+  display: inline;
 }
 
 .social-networks i {
-    font-size: 160%;
-    margin: 1%;
-    padding: 5%;
+  font-size: 160%;
+  margin: 1%;
+  padding: 5%;
 }
 
 /* Home Page section */
 /* Hero Image */
 #hero-image {
-    height: 600px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
+  height: 600px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
 
-    animation-name: hero-zoom;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
+  animation-name: hero-zoom;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
 }
 
 #hero-outer {
-    height: 600px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+  height: 600px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 @keyframes hero-zoom {
-    from {
-        transform: scale(1);
-    }
+  from {
+    transform: scale(1);
+  }
 
-    to {
-        transform: scale(1.1);
-    }
+  to {
+    transform: scale(1.1);
+  }
 }
 
-
 #map-add {
-    position: relative;
+  position: relative;
 }
 
 #map-add p {
-    position: absolute;
-    color: green;
-    mix-blend-mode: difference;
-    margin: 0;
-    padding: 0;
+  position: absolute;
+  color: green;
+  mix-blend-mode: difference;
+  margin: 0;
+  padding: 0;
 }

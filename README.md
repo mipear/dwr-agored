@@ -202,9 +202,48 @@ Before deleting a swim or location, users are asked if they are sure they would 
 
 ## Deployment
 
-Deployment steps
+### Creating the database
 
-Making a local clone
+- Using [ElephantSQL](https://customer.elephantsql.com/), click "Create New Instance".
+- Set up your plan by giving a name to the project and select the Tiny Turtle (Free) plan.
+- Click "select Region" and choose a data center near you
+- Click "Review" and check details are correct.
+- Click "Create Instance"
+- Return to dashboard and click on the database instance name
+- In the URL section, copy the database URL
+
+In your IDE workspace:
+
+-Generate the requirements.txt file with the following command: pip freeze --local > requirements.txt
+
+- Create a new file called "Procfile" in the root directory
+- Inside Procfile, add the following command: web: python run.py
+- Open your **init**.py file
+- Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL.
+- To ensure that SQLAlchemy can also read our external database, its URL needs to start with “postgresql://”, but we should not change this in the environment variable. Instead, we’ll make an addition to our else statement from the previous step to adjust our DATABASE_URL in case it starts with postgres://:
+- Save, add, commit, and push these changes to Github.
+
+Connecting the database to the hosting platform:
+
+- Log into [Heroku](Heroku.com) and click "New" and then "Create new app"
+- Choose a name for your app, select a region, and click "Create app"
+- Go to Settings of your app
+- Click "Reveal Config Vars"
+- Paste the database URL you copied earlier from ElephantSQL
+- Add a Config Var DATABASE_URL and paste your ElephantSQL database URL in as the value. Make sure you click “Add”
+- Add each environment variable except DEVELOPMENT and DB_URL
+
+### Deploying the app
+
+- Navigate to the “Deploy” tab of your app
+- In the Deployment method, click "Connect to Github"
+- Search for your repo and select "Connect"
+- Find the Manual deploy section and click "Deploy Branch".
+- Click the "More" button and select "Run console"
+- Type python3 into the console and click "Run"
+- To create the tables, use "from dwragored import db" and then "db.create_all()". Exit the Python terminal by typing "exit()".
+- Click "Open app"
+- Congratulations! You have successfully deployed your app to Heroku!
 
 ## Credits
 

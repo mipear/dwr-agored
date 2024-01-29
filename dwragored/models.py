@@ -1,4 +1,5 @@
 from dwragored import db
+from flask_login import UserMixin, LoginManager
 
 
 class Location(db.Model):
@@ -6,6 +7,7 @@ class Location(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     location_name = db.Column(db.String(25), unique=True, nullable=False)
     my_swim = db.relationship("MySwim", backref="location", cascade="all, delete", lazy=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
@@ -21,6 +23,7 @@ class MySwim(db.Model):
     cleanliness_rating = db.Column(db.Integer, nullable=False)
     date = db.Column(db.Date, nullable=False)
     location_id = db.Column(db.Integer, db.ForeignKey("location.id", ondelete="CASCADE"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
@@ -28,7 +31,7 @@ class MySwim(db.Model):
             self.id, self.myswim_title, self.go_again, self.cleanliness_rating
         )
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
