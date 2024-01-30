@@ -11,11 +11,25 @@ from flask_login import (
     LoginManager,
 )
 
-# # login_manager = LoginManager()
+class User(UserMixin):
+    def __init__(self, name, id, active=True):
+        self.name = name
+        self.id = id
+        self.active = active
+
+    def is_active(self):
+        # Needs the code that checks if user is active
+        return self.active
+
+    def is_anonymous(self):
+        return False
+    
+    def is_authenticated(self):
+        return True
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return User.get(user_id)
 
 @app.route("/allswims")
 def allswims():
@@ -30,22 +44,35 @@ def homepage():
 
 @app.route("/user_login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        username = request.form.get("username").lower()
-        password = request.form.get("password")
+    form = LoginForm()
+    if form.validate_on_submit():
+        login_user(user)
 
-        user = User.query.filter_by(username=username).first()
+        flask.flash('Logged in successfully')
 
-        if user and check_password_hash(user.password, password):
-            session["user"] = username
-            flash("Welcome, {}".format(username))
-            return redirect(url_for(
-                "profile", username=session["user"]))
-        else:
-            flash("Incorrect Username and/or Password")
-            return redirect(url_for("login"))
+        next = flask.request.args.get('next')
+        if not url_has_allowed_host_and_scheme(next, request, host):
+            return flask.abort(4000)
 
-    return render_template("login.html")
+        return flask.redirect(next or flask.url_for('homepage'))
+    return flask.render_template('login.html', form=form)
+
+    #if request.method == "POST":
+     #   username = request.form.get("username").lower()
+      #  password = request.form.get("password")
+#
+ #       user = User.query.filter_by(username=username).first()
+#
+ #       if user and check_password_hash(user.password, password):
+  #          session["user"] = username
+   #         flash("Welcome, {}".format(username))
+    #        return redirect(url_for(
+     #           "profile", username=session["user"]))
+      #  else:
+       #     flash("Incorrect Username and/or Password")
+        #    return redirect(url_for("login"))
+
+   # return render_template("login.html")
 
 if __name__ == "__main__":
     db.create_all()
@@ -168,7 +195,7 @@ def delete_swim(myswim_id):
 def profile(username):
     
     # user = User.query.filter_by(username=session["user"]).first()
-    user = User.query.filter_by(username=username)
+    user = User.filter_by(username=username)
     if user:
         # username = user.username
         return render_template("profile.html", username=username)
@@ -184,3 +211,8 @@ def logout():
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
+
+    
+
+
+
