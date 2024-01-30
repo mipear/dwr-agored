@@ -31,10 +31,12 @@
             <p>{{ myswim.myswim_description }}</p>
             <span><strong>How clean was this swim?</strong> {{ myswim.cleanliness_rating }}</span>
             <p><strong>I would go again! </strong> {{ myswim.go_again }}</p>
+            {% if myswim.user_id == current_user.id %}
             <!-- Edit button -->
             <a href="{{ url_for('edit_swim', myswim_id=myswim.id) }}" class="btn green accent-4">Edit</a>
             <!-- Delete button -->
             <a href="#modal-{{ myswim.id }}" class="btn red modal-trigger">Delete</a>
+            {% endif %}
 
             <!-- Modal to ensure users are sure they want tot delete. -->
             <div id="modal-{{ myswim.id }}" class="modal">
