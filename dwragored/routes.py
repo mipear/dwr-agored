@@ -141,7 +141,7 @@ def location():
 @login_required
 def add_location():
     if request.method == "POST":
-        location = Location(location_name=request.form.get("location_name"))
+        location = Location(location_name=request.form.get("location_name"),user_id=current_user.id)
         db.session.add(location)
         db.session.commit()
         return redirect(url_for("location"))
