@@ -4,41 +4,56 @@
 
 <!-- Add location -->
 <div class="row">
-    <div class="col s12 center-align">
-        <a href="{{ url_for('add_location') }}" class="btn-large light-blue darken-2">
-            Add Location <i class="fas fa-plus-square right"></i>
-        </a>
-    </div>
+  <div class="col s12 center-align">
+    <a
+      href="{{ url_for('add_location') }}"
+      class="btn-large light-blue darken-2"
+    >
+      Add Location <i class="fas fa-plus-square right"></i>
+    </a>
+  </div>
 </div>
 
 <!-- Location card using Materialize -->
 <div class="row">
-    {% for location in location %}
-    <div class="col s12 m6 l3">
-        <div class="card light-blue darken-4 center-align">
-            <div class="card-content white-text">
-                <span class="card-title">{{ location.location_name }}</span>
-            </div>
-            <div class="card-action">
-                <!-- Edit button -->
-                <a href="{{ url_for('edit_location', location_id=location.id) }}" class="btn green accent-4">Edit</a>
-                <!-- Delete button -->
-                <a href="#modal-{{ location.id }}" class="btn red modal-trigger">Delete</a>
+  {% for location in location %}
+  <div class="col s12 m6 l3">
+    <div class="card light-blue darken-4 center-align">
+      <div class="card-content white-text">
+        <span class="card-title">{{ location.location_name }}</span>
+      </div>
+      <div class="card-action">
+        {% if location.user_id == current_user.id %}
+        <!-- Edit button -->
+        <a
+          href="{{ url_for('edit_location', location_id=location.id) }}"
+          class="btn green accent-4"
+          >Edit</a
+        >
+        <!-- Delete button -->
+        <a href="#modal-{{ location.id }}" class="btn red modal-trigger"
+          >Delete</a
+        >
+        {% endif %}
 
-                <!-- Modal to ensure user is sure they'd like to delete -->
-                <div id="modal-{{ location.id }}" class="modal">
-                    <div class="modal-content">
-                        <h5>Are you sure you want to delete this location?</h5>
-                        <p>This action cannot be undone.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('delete_location', location_id=location.id) }}" class="btn red">Delete</a>
-                        <a href="#!" class="modal-close btn green accent-4">Cancel</a>
-                    </div>
-                </div>
-            </div>
+        <!-- Modal to ensure user is sure they'd like to delete -->
+        <div id="modal-{{ location.id }}" class="modal">
+          <div class="modal-content">
+            <h5>Are you sure you want to delete this location?</h5>
+            <p>This action cannot be undone.</p>
+          </div>
+          <div class="modal-footer">
+            <a
+              href="{{ url_for('delete_location', location_id=location.id) }}"
+              class="btn red"
+              >Delete</a
+            >
+            <a href="#!" class="modal-close btn green accent-4">Cancel</a>
+          </div>
         </div>
+      </div>
     </div>
-    {% endfor %}
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}

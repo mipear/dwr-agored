@@ -88,13 +88,19 @@ def login():
                 
                 flash("Logged in Successfully!", category="success")
                 login_user(user, remember=False)
-                return redirect(url_for("profile", username=session["user"]))
+                session["user"] = user.username
+                session["user"] = user.username
+                return redirect(url_for("profile", username=current_user.username))
             else:
                 flash("Incorrect Password, Try again.", category="error")
         else:
             flash("User does not exist", category="error")
 
+
+
     return render_template("login.html", user=current_user)
+
+
 
 
 if __name__ == "__main__":
@@ -196,7 +202,8 @@ def add_swim():
 def edit_swim(myswim_id):
     myswim = MySwim.query.get_or_404(myswim_id)
     location = list(Location.query.order_by(Location.location_name).all())
-    
+    print(f'swim user id: {myswim.user_id}')
+    print(f'current user id: {current_user.id}')
     if myswim.user_id == current_user.id:
         if request.method == "POST":
             myswim.myswim_title = request.form.get("myswim_title")
@@ -236,9 +243,11 @@ def profile(username):
     else:
         return render_template("user_not_found.html")
 
-# Logout
+
+    logout_user(user, remember=False)# Logout
 @app.route("/user_logout")
 def logout():
+    logout_user(user, remember=False)
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
