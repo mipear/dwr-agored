@@ -11,6 +11,7 @@ from flask_login import (
     LoginManager,
 )
 
+# UserMixin
 class User(UserMixin):
     def __init__(self, name, id, active=True):
         self.name = name
@@ -36,7 +37,7 @@ def allswims():
     myswim = list(MySwim.query.order_by(MySwim.id).all())
     return render_template("myswim.html", myswim=myswim)
 
-
+# Home Page
 @app.route("/")
 def homepage():
     print(current_user)
@@ -78,6 +79,7 @@ if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
 
+# Register account
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -106,12 +108,13 @@ if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
 
+# Location
 @app.route("/location")
 def location():
     location = list(Location.query.order_by(Location.location_name).all())
     return render_template("location.html", location=location)
 
-
+# Add location
 @app.route("/add_location", methods=["GET", "POST"])
 @login_required
 def add_location():
@@ -122,7 +125,7 @@ def add_location():
         return redirect(url_for("location"))
     return render_template("add_location.html")
 
-
+# Edit location
 @app.route("/edit_location/<int:location_id>", methods=["GET", "POST"])
 @login_required
 def edit_location(location_id):
@@ -133,7 +136,7 @@ def edit_location(location_id):
         return redirect(url_for("location"))
     return render_template("edit_location.html", location=location)
 
-
+# Delete location
 @app.route("/delete_location/<int:location_id>")
 @login_required
 def delete_location(location_id):
@@ -142,7 +145,7 @@ def delete_location(location_id):
     db.session.commit()
     return redirect(url_for("location"))
 
-
+# Add swim
 @app.route("/add_swim", methods=["GET", "POST"])
 @login_required
 def add_swim():
@@ -165,7 +168,7 @@ def add_swim():
         return redirect(url_for("allswims"))
     return render_template("add_swim.html", location=location)
 
-
+# Edit swim
 @app.route("/edit_swim/<int:myswim_id>", methods=["GET", "POST"])
 @login_required
 def edit_swim(myswim_id):
@@ -182,7 +185,7 @@ def edit_swim(myswim_id):
         db.session.commit()
     return render_template("edit_swim.html", myswim=myswim, location=location)
 
-
+# Delete swim
 @app.route("/delete_swim/<int:myswim_id>")
 @login_required
 def delete_swim(myswim_id):
@@ -191,6 +194,7 @@ def delete_swim(myswim_id):
     db.session.commit()
     return redirect(url_for("allswims"))
 
+# Profile
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     
@@ -202,6 +206,7 @@ def profile(username):
     else:
         return render_template("user_not_found.html")
 
+# Logout
 @app.route("/user_logout")
 def logout():
     flash("You have been logged out")
