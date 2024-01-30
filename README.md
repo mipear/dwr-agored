@@ -4,7 +4,7 @@ Am I responsive img
 
 The purpose of Dŵr Agored is to offer cold water swimmers in the South Wales area a website to browse and post their experiences of cold water swimming. This website is useful to swimmers as they are able to recommend places they enjoy and warn other swimmers of potentially dangerous places. It can also be used as a diary for swimmers. Users can browse other people’s experiences to gain new cold water swimming destinations.
 
-<https://dwr-agored-41d2330041ac.herokuapp.com/>
+Here is the deployed version of [Dŵr Agored](https://dwr-agored-41d2330041ac.herokuapp.com/).
 
 ## UX
 
@@ -125,31 +125,6 @@ Materialize has been incredibly useful in ensuring accessibility needs are met. 
 
 What does the database include? Provide images of each part (able to use atlas to do this??)
 
-## Technology
-
-### Languages Used
-
-### Database Used
-
-### Frameworks Used
-
-Materialize
-
-### Libraries and Packages Used
-
-Flask
-Jinja
-FontAwesome
-
-### Programs Used
-
-Heroku
-Git
-GitHub
-Google Dev Tools
-Pip (???)
-ElephantSQL
-
 ## Testing
 
 ### User Stories
@@ -245,8 +220,55 @@ Connecting the database to the hosting platform:
 - Click "Open app"
 - Congratulations! You have successfully deployed your app to Heroku!
 
+## Technology
+
+### Languages Used
+
+HTML, CSS, Python, and Javascript.
+
+### Database Used
+
+### Frameworks Used
+
+- For responsive styling and good user experience, I used [Materialize](https://materializecss.com/).
+
+### Libraries and Packages Used
+
+- [Flask](https://flask.palletsprojects.com/en/3.0.x/)
+
+Jinja
+
+- Icons were created using [Font Awesome](https://fontawesome.com/)
+
+### Programs Used
+
+Google Dev Tools
+Pip (???)
+
+- For version control, I used [Github](https://github.com/
+
+- [ElephantSQL](https://customer.elephantsql.com/) has been used to manage the PostgreSQL database.
+
+- The app has been deployed to [Heroku](https://dashboard.heroku.com/apps).
+
 ## Credits
+
+- [Code Institute Taskmanager](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DIWADRDB+2022_Q3/courseware/c0c31790fcf540539fd2bd3678b12406/6e44128b0b37416ab40c1a87ef2cb32a/) has been used and adapted for the purpose of this project.
 
 ## Media
 
+- The Wireframes were created using [Balsamiq](https://balsamiq.com/)
+
+-   [Coolors](https://coolors.co/)’s “Colour Picker” has been used to choose colours from the hero imag
+
+- [Unsplash](https://unsplash.com/photos/woman-in-body-of-water-during-daytime-PYRxWCDvQtg) was used for the swimming image on the All Swims page. The hero image was taken by myself.
+
+- The footer contains the following social media accounts: [X](https://twitter.com/), [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/), [Youtube](https://www.youtube.com/).
+
+- To implement the User Login and the ability to edit and delete, I used this [Flask Login Documentation](https://flask-login.readthedocs.io/en/latest/#)
+
+- [Favicon](https://favicon.io/)
+
 ## Acknowledgment
+
+Thank you to my mentor, Martina, my facilitator, Marko, and the tutor support team at Code Institute for supporting me with this project.
