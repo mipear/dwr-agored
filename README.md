@@ -1,10 +1,12 @@
 # Dŵr Agored
 
-Am I responsive img
-
 The purpose of Dŵr Agored is to offer cold water swimmers in the South Wales area a website to browse and post their experiences of cold water swimming. This website is useful to swimmers as they are able to recommend places they enjoy and warn other swimmers of potentially dangerous places. It can also be used as a diary for swimmers. Users can browse other people’s experiences to gain new cold water swimming destinations.
 
 Here is the deployed version of [Dŵr Agored](https://dwr-agored-41d2330041ac.herokuapp.com/).
+
+## Unfixed bugs
+
+Unfortunately, the deployed version is no longer working suffieciently.
 
 ## UX
 
