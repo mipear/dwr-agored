@@ -81,19 +81,29 @@ This will be the log in page.
 
 ### The Navigation Menu
 
+![The Navigation Menu](dwragored/static/images/docs/navigation.webp)
+
 The NavBar for new users shows only three pages: Home Page, Register, and Log In. The Navigation Bar changes when users log in, allowing returning users to have access to the following: Home Page, All Swims, Location, Profile, Log Out. The necessity to have an account for the likes of “All Swims” and “Location” ensures that only regular users are able to create posts and edit other people’s. The profile offers a space for users to feel individually a part of the website. In future implementations of this site, users’ own swims will feature on their Profile page and users could follow other users. On smaller screens, this becomes a hamburger menu to ensure good user practice.
 
 ### Logo
 
 The Logo is simply the title “Dŵr Agored” written in blue. This is situated on the left of the nav bar. When clicked, this will redirect to the Home Page. “Dŵr Agored” translates to “Open Water”. The simplicity of this definition and the styling of the logo has been done to emphasise the simplicity of the concept itself and the necessity of it too. The fact that this is written in Welsh, contextualises the site to be for people in Wales, immediately targeting the desired users.
 
+![Logo](dwragored/static/images/docs/logo.webp)
+
 ### Home Page
 
 The Home Page is a page all users have access to. The Home Page’s purpose is to clearly tell the new or returning user what the purpose of the website is. It shows a hero image and an About section. Initially, this was going to have the All Swims posts too, however, this has been changed to entice new users to register and become a recurring user. The more returning users that visit the site and create posts, the more locations and experiences that exist on the website, creating a space for recommendations and reflections. It’s important for users to feel the benefits of having an account and signing in.
 
+![Home upper page](dwragored/static/images/docs/homepagenav.webp)
+
+![Homelower page](dwragored/static/images/docs/homeabout.webp)
+
 ### Hero Image
 
 The hero image, situated on the Home Page, is an image of Pen-Ffordd-Goch in South Wales taken by myself before a swim. As this image is one of the initial things a user will see, the hero image contextualises the website by immediately highlighting the need for the site itself. This image is simply as the website suggests, “Dŵr Agored” - “Open Water”. It is hard to find good swimming locations in South Wales, this website aims to help users with this issue and this image highlights one location.
+
+![Hero Image](dwragored/static/images/heroimage.webp)
 
 ### Colour Palette
 
@@ -119,6 +129,10 @@ Users are able to edit their swim by clicking the “Edit” button on the colla
 
 The Location page is a space in which users can add their swim locations in order to use for the All Swims post. To add a location, users simply click “Add Location”. Users type their specified location before selecting “Add New Location”. This page is for regular users only in order to protect the locations submitted. If a location is deleted, all posts using that location are also deleted, as this website’s predominant focus is recommending locations. Once added, locations are presented using Materialize cards, featuring the name of the location and edit/delete buttons similar to the All Swim buttons. These locations make up the locations users are able to choose from within the My Swim form.
 
+### Log In/Log Out/Register
+
+Users are able to Register for an account. Users must log in to access the All Swims and Location pages.
+
 ## Functionality
 
 “Dŵr Agored” has CRUD functionality. Regular users are able to Create posts, Read posts on the All Swims page, Update posts using the “Edit Swim” button, and Delete posts using the “Delete Modal”. Furthermore, regular users are able to Create, Read, Update, and Delete locations. Users are only able to use this CRUD functionality if they are logged in. To log in, users must first registrate using the “Registrate” page. Users are then asked to Create a username and a password. This has been created using cards through Materialize and the Taskmanager mini project on Code Institute. The authenticication has been adapted to be compatible with SQL.
@@ -129,7 +143,7 @@ Materialize has been incredibly useful in ensuring accessibility needs are met. 
 
 ## Database Schema
 
-What does the database include? Provide images of each part (able to use atlas to do this??)
+![Database Schema](dwragored/static/images/docs/dbschema.webp)
 
 ## Testing
 
@@ -149,16 +163,10 @@ What does the database include? Provide images of each part (able to use atlas t
 
 W3C
 
-| Syntax    | Description |
-| --------- | ----------- |
-| Header    | Title       |
-| Paragraph | Text        |
-
 **CSS Validation**
 
 W3C Jigsaw
 
-Image: ![alt text](image link)
 **Javascript Validator**
 
 JS Hint
