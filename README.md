@@ -6,7 +6,22 @@ Here is the deployed version of [Dŵr Agored](https://dwr-agored-41d2330041ac.he
 
 ## Unfixed bugs
 
-Unfortunately, the deployed version is no longer working suffieciently.
+Unfortunately, this ebsite is no longer working sufficiently. Users are able to register and access the Homepage but, after many efforts, users are no longer able to access the Add Swim or Location pages. The pages show the following errors:
+
+![my_swim error](dwragored/static/images/docs/error.webp)
+
+![location error](dwragored/static/images/docs/errortwo.webp)
+
+After implementing flask_login features, the workspace was fully functional locally, allowing users to edit and delete only their own posts when signed in (30/01). However, the deployed version showed the above errors. After contacting tutor support, Jason helped me recreate the wrok space and alter my env file. However, he could not find the route of the issue and the issue persisted. I attemtped to drop the database and recreate it.
+
+This morning (31/01), the local version is no longer functional and has the same issues. After contacting tutor support again this morning, Gemma has been incredibly useful and noticed there was no instance considered for if there is no swim or location. I added an if statement for this but it is still not functional.
+
+Gemma explined the following, "Essentially, I think a lot of the issues are caused by not having the data in the database, that's where adding the conditional statements to check if there is data / else load a message comes in.
+However, the workspace is currently loading so slowly it's becoming impossible to test.
+I would recommend to at this stage, submit what you have, but in the mean time, I will write a note to student care explaining about the speed of the workspace hindering your efforts.
+I would also recommend using the green button on the codeanywhere dashboard to see if they can get the workspace up to speed in these last few hours for you - if they can do this, it will help you in your debugging efforts."
+
+Unfortunately, despite great efforts, this does not show full functionality as there is not enough time to implement what is necessary before this deadline. The rest of this README.md was written when this workspace was working locally. I have included images of what I have downloaded previously but unfortunately do not have screenshots of how the pages did look.
 
 ## UX
 
@@ -101,6 +116,10 @@ The Home Page is a page all users have access to. The Home Page’s purpose is t
 
 ![Homelower page](dwragored/static/images/docs/homeabout.webp)
 
+![Home iPad](dwragored/static/images/docs/homeipad.webp)
+
+![Home mobile](dwragored/static/images/docs/mobilehome.webp)
+
 ### Hero Image
 
 The hero image, situated on the Home Page, is an image of Pen-Ffordd-Goch in South Wales taken by myself before a swim. As this image is one of the initial things a user will see, the hero image contextualises the website by immediately highlighting the need for the site itself. This image is simply as the website suggests, “Dŵr Agored” - “Open Water”. It is hard to find good swimming locations in South Wales, this website aims to help users with this issue and this image highlights one location.
@@ -131,6 +150,8 @@ Users are able to edit their swim by clicking the “Edit” button on the colla
 
 The Location page is a space in which users can add their swim locations in order to use for the All Swims post. To add a location, users simply click “Add Location”. Users type their specified location before selecting “Add New Location”. This page is for regular users only in order to protect the locations submitted. If a location is deleted, all posts using that location are also deleted, as this website’s predominant focus is recommending locations. Once added, locations are presented using Materialize cards, featuring the name of the location and edit/delete buttons similar to the All Swim buttons. These locations make up the locations users are able to choose from within the My Swim form.
 
+![add location](dwragored/static/images/docs/addlocationimg.webp)
+
 ### Log In/Log Out/Register
 
 Users are able to Register for an account. Users must log in to access the All Swims and Location pages.
@@ -149,6 +170,8 @@ Materialize has been incredibly useful in ensuring accessibility needs are met. 
 
 ## Testing
 
+Unfortunetly, as explained above, this testing is no longer true and only the homepage, profile, and register is functional.
+
 ### User Stories
 
 | As a ... I want to...                                                                            | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -163,33 +186,23 @@ Materialize has been incredibly useful in ensuring accessibility needs are met. 
 
 **HTML Validation**
 
-W3C
+[W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdwr-agored-41d2330041ac.herokuapp.com%2F) has been used but
 
 **CSS Validation**
 
-W3C Jigsaw
+![W3C Jigsaw[(dwragored/static/images/docs/cssvalidation.webp)]
 
 **Javascript Validator**
 
-JS Hint
-
-Img
-
-**WAVE Validator**
-
-Table
+[JS Hint](https://jshint.com/) showed no errors.
 
 **Ligthhouse**
 
-Link and table (Page, Result, Evidence)
-
-**CI Python Lintor**
-
-<https://pep8ci.herokuapp.com/>
+[Google Lighthouse(<https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?pli=1>): ![Google Lighthouse](dwragored/static/images/docs/lighthouse.webp)
 
 ### Defensive Programming
 
-Before deleting a swim or location, users are asked if they are sure they would like to delete it.
+Before deleting a swim or location, users are asked if they are sure they would like to delete it. Only users who are logged in can alter their own posts.
 
 ## Deployment
 
@@ -244,6 +257,8 @@ HTML, CSS, Python, and Javascript.
 
 ### Database Used
 
+Postgresl, ElephantSQL
+
 ### Frameworks Used
 
 - For responsive styling and good user experience, I used [Materialize](https://materializecss.com/).
@@ -257,9 +272,6 @@ Jinja
 - Icons were created using [Font Awesome](https://fontawesome.com/)
 
 ### Programs Used
-
-Google Dev Tools
-Pip (???)
 
 - For version control, I used [Github](https://github.com/
 
