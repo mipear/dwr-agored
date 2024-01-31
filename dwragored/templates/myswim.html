@@ -19,16 +19,17 @@
 
 <!-- All Swim posts -->
 <ul class="collapsible">
-    {% for myswim in myswim|sort(attribute="date") %}
+    {% if myswim|length > 0 %}
+    {% for swim in myswim|sort(attribute="date") %}
     <li>
         <div class="collapsible-header white-text light-blue darken-4">
             <i class="fas fa-caret-down"></i>
-            <strong>{{ myswim.myswim_title }}</strong> : {{ myswim.date.strftime("%d
+            <strong>{{ swim.myswim_title }}</strong> : {{ myswim.date.strftime("%d
             %B, %Y") }}
         </div>
         <div class="collapsible-body">
             <strong>{{ myswim.location }}</strong>
-            <p>{{ myswim.myswim_description }}</p>
+            <p>{{ swim.myswim_description }}</p>
             <span><strong>How clean was this swim?</strong> {{ myswim.cleanliness_rating }}</span>
             <p><strong>I would go again! </strong> {{ myswim.go_again }}</p>
             {% if myswim.user_id == current_user.id %}
@@ -52,6 +53,9 @@
             </div>
     </li>
     {% endfor %}
+    {% else %}
+    <h4 class="center-align alert-text">Sorry, there are no swims"</h4>
+    {% endif %}
 </ul>
 
 {% endblock %}

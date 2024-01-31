@@ -19,7 +19,6 @@ class Users(UserMixin):
         self.active = active
 
     def is_active(self):
-        # Needs the code that checks if user is active
         return self.active
 
     def is_anonymous(self):
@@ -45,39 +44,7 @@ def homepage():
 
 @app.route("/user_login", methods=["GET", "POST"])
 def login():
-    #form = LoginForm()
-    
-    #if form.validate_on_submit():
-        
-        #login_user(user)
 
-        #flask.flash('Logged in successfully')
-
-        #next = flask.request.args.get('next')
-       # if not url_has_allowed_host_and_scheme(next, request, host):
-      #      return flask.abort(4000)
-
-     #   return flask.redirect(next or flask.url_for('homepage'))
-    #return flask.render_template('login.html', form=form)
-
-#######
-
-    #if request.method == "POST":
-     #   username = request.form.get("username").lower()
-      #  password = request.form.get("password")
-#
- #       user = User.query.filter_by(username=username).first()
-#
- #       if user and check_password_hash(user.password, password):
-  #          session["user"] = username
-   #         flash("Welcome, {}".format(username))
-    #        return redirect(url_for(
-     #           "profile", username=session["user"]))
-      #  else:
-       #     flash("Incorrect Username and/or Password")
-        #    return redirect(url_for("login"))
-
-   # return render_template("login.html")
     if request.method == "POST":
         username = request.form.get("username").lower()
         password = request.form.get("password")
@@ -95,9 +62,6 @@ def login():
                 flash("Incorrect Password, Try again.", category="error")
         else:
             flash("User does not exist", category="error")
-
-
-
     return render_template("login.html", user=current_user)
 
 
@@ -127,7 +91,6 @@ def register():
         db.session.commit()
 
         flash("Registration Successful!")
-        # return redirect(url_for("profile", username=session["user"]))
         return redirect(url_for("profile", username=username))
 
     return render_template("register.html")
@@ -235,16 +198,15 @@ def delete_swim(myswim_id):
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     
-    # user = User.query.filter_by(username=session["user"]).first()
-    user = User.query.filter_by(username=username)#.first()
+    user = User.query.filter_by(username=username)
     if user:
-        # username = user.username
         return render_template("profile.html", username=username)
     else:
         return render_template("user_not_found.html")
 
 
-    logout_user(user, remember=False)# Logout
+    logout_user(user, remember=False)
+
 @app.route("/user_logout")
 def logout():
     logout_user(user, remember=False)

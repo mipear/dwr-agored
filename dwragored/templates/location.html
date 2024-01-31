@@ -13,11 +13,12 @@
 
 <!-- Location card using Materialize -->
 <div class="row">
-    {% for location in location %}
+    {% if location|length > 0 %}
+    {% for l in location %}
     <div class="col s12 m6 l3">
         <div class="card light-blue darken-4 center-align">
             <div class="card-content white-text">
-                <span class="card-title">{{ location.location_name }}</span>
+                <span class="card-title">{{ l.location_name }}</span>
             </div>
             <div class="card-action">
                 {% if location.user_id == current_user.id %}
@@ -42,5 +43,8 @@
         </div>
     </div>
     {% endfor %}
+    {% else %}
+    <h4 class="center-align alert-text">Sorry, there are no locations"</h4>
+    {% endif %}
 </div>
 {% endblock %}
