@@ -61,19 +61,23 @@ As a returning user of the site I want to be able to:
 
 ### Home Page
 
-The Home Page is a page all users have access to. The purpose of this page is to
+The Home Page is a page all users have access to. The purpose of this page is to educate the users of the website's purpose.
 
-### My Swim
+![Homepage Wireframe](dwragored/static/images/docs/home.webp)
 
-Description and wireframe
+### All Swim
 
-### Location
+Initially called "My Swim", "All Swim" features users' swim experiences through filling out the "My Swim" form.
 
-Description and wireframe
+![My Swim Form](dwragored/static/images/docs/allswimwireframe.webp)
+
+### Log In
+
+This will be the log in page.
+
+![Log In](dwragored/static/images/docs/signinwireframe.webp)
 
 ## Features
-
-### Favicon
 
 ### The Navigation Menu
 
@@ -94,6 +98,8 @@ The hero image, situated on the Home Page, is an image of Pen-Ffordd-Goch in Sou
 ### Colour Palette
 
 The colour palette was inspired by the hero image and the theme of water itself. The intention was to be as simple and clear as possible to ensure the user is able to understand and navigate the website with ease. The colours were chosen using Coolors to pick colours from the hero image and then compared to using Materialize to create a more cohesive finish.
+
+![Coolor's palette](dwragored/static/images/docs/colourcoolors.webp)
 
 ### All Swims
 
@@ -259,7 +265,7 @@ Pip (???)
 
 - The Wireframes were created using [Balsamiq](https://balsamiq.com/)
 
--   [Coolors](https://coolors.co/)’s “Colour Picker” has been used to choose colours from the hero imag
+- [Coolors](https://coolors.co/)’s “Colour Picker” has been used to choose colours from the hero image.
 
 - [Unsplash](https://unsplash.com/photos/woman-in-body-of-water-during-daytime-PYRxWCDvQtg) was used for the swimming image on the All Swims page. The hero image was taken by myself.
 
