@@ -184,7 +184,6 @@ def edit_swim(myswim_id):
         return redirect(url_for("allswims"))
     
 
-
 # Delete swim
 @app.route("/delete_swim/<int:myswim_id>")
 @login_required
