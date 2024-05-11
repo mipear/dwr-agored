@@ -4,25 +4,6 @@ The purpose of Dŵr Agored is to offer cold water swimmers in the South Wales ar
 
 Here is the deployed version of [Dŵr Agored](https://dwr-agored-41d2330041ac.herokuapp.com/).
 
-## Unfixed bugs
-
-Unfortunately, this ebsite is no longer working sufficiently. Users are able to register and access the Homepage but, after many efforts, users are no longer able to access the Add Swim or Location pages. The pages show the following errors:
-
-![my_swim error](dwragored/static/images/docs/error.webp)
-
-![location error](dwragored/static/images/docs/errortwo.webp)
-
-After implementing flask_login features, the workspace was fully functional locally, allowing users to edit and delete only their own posts when signed in (30/01). However, the deployed version showed the above errors. After contacting tutor support, Jason helped me recreate the wrok space and alter my env file. However, he could not find the route of the issue and the issue persisted. I attemtped to drop the database and recreate it.
-
-This morning (31/01), the local version is no longer functional and has the same issues. After contacting tutor support again this morning, Gemma has been incredibly useful and noticed there was no instance considered for if there is no swim or location. I added an if statement for this but it is still not functional.
-
-Gemma explined the following, "Essentially, I think a lot of the issues are caused by not having the data in the database, that's where adding the conditional statements to check if there is data / else load a message comes in.
-However, the workspace is currently loading so slowly it's becoming impossible to test.
-I would recommend to at this stage, submit what you have, but in the mean time, I will write a note to student care explaining about the speed of the workspace hindering your efforts.
-I would also recommend using the green button on the codeanywhere dashboard to see if they can get the workspace up to speed in these last few hours for you - if they can do this, it will help you in your debugging efforts."
-
-Unfortunately, despite great efforts, this does not show full functionality as there is not enough time to implement what is necessary before this deadline. The rest of this README.md was written when this workspace was working locally. I have included images of what I have downloaded previously but unfortunately do not have screenshots of how the pages did look.
-
 ## UX
 
 ## User Stories
