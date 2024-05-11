@@ -276,7 +276,7 @@ Jinja
 
 - To implement the User Login and the ability to edit and delete, I used this [Flask Login Documentation](https://flask-login.readthedocs.io/en/latest/#)
 
-- [Favicon](https://favicon.io/)
+- [Favicon](https://favicon.io/) provided the wave Favicon.
 
 ## Acknowledgment
 
